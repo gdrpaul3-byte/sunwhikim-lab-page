@@ -67,7 +67,17 @@
             max-width: var(--max-w);
             margin: 0 auto;
             padding: 120px 24px 60px;
+            display: flex; align-items: center; gap: 48px;
         }
+        .hero-photo {
+            flex-shrink: 0;
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-light);
+            box-shadow: var(--card-shadow);
+        }
+        .hero-text { flex: 1; }
         .hero-sub {
             font-size: 14px; font-weight: 500; color: var(--accent);
             text-transform: uppercase; letter-spacing: 1.5px;
@@ -270,8 +280,10 @@
 
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; gap: 24px; }
             .hero h1 { font-size: 32px; }
             .hero h1 span { display: block; margin-left: 0; margin-top: 4px; font-size: 22px; }
+            .hero-links { justify-content: center; }
             .nav-links { display: none; }
             .research-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
@@ -318,16 +330,20 @@
 
 <!-- HERO -->
 <header class="hero">
-    <p class="hero-sub">Neural Systems Laboratory</p>
-    <h1>김선휘<span>Sunwhi Kim, Ph.D.</span></h1>
-    <p class="hero-title">교수 &middot; 생물심리학 &middot; 뇌신경생물학</p>
-    <p class="hero-dept">바이오헬스케어학과, 화성의과학대학교</p>
-    <div class="hero-links">
-        <a href="https://scholar.google.com/citations?user=64RRH9QAAAAJ&hl=ko&oi=ao" target="_blank" rel="noopener" class="btn btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
-            Google Scholar
-        </a>
-        <a href="mailto:skim@hsmu.ac.kr" class="btn btn-outline">skim@hsmu.ac.kr</a>
+    <img src="profile.jpg" alt="Prof. Sunwhi Kim" class="hero-photo">
+    <div class="hero-text">
+        <p class="hero-sub">Neural Systems Laboratory</p>
+        <h1>김선휘<span>Sunwhi Kim, Ph.D.</span></h1>
+        <p class="hero-title">교수 &middot; 생물심리학 &middot; 뇌신경생물학</p>
+        <p class="hero-dept">바이오헬스케어학과, 화성의과학대학교</p>
+        <div class="hero-links">
+            <a href="https://scholar.google.com/citations?user=64RRH9QAAAAJ&hl=ko&oi=ao" target="_blank" rel="noopener" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+                Google Scholar
+            </a>
+            <a href="mailto:skim@hsmu.ac.kr" class="btn btn-outline">skim@hsmu.ac.kr</a>
+            <a href="mailto:gdrpaul3@gmail.com" class="btn btn-outline">gdrpaul3@gmail.com</a>
+        </div>
     </div>
 </header>
 
@@ -527,7 +543,10 @@
         </div>
         <div class="contact-card">
             <div class="label">Email</div>
-            <div class="value"><a href="mailto:skim@hsmu.ac.kr">skim@hsmu.ac.kr</a></div>
+            <div class="value">
+                <a href="mailto:skim@hsmu.ac.kr">skim@hsmu.ac.kr</a><br>
+                <a href="mailto:gdrpaul3@gmail.com">gdrpaul3@gmail.com</a>
+            </div>
         </div>
         <div class="contact-card">
             <div class="label">Scholar</div>
