@@ -574,7 +574,7 @@ footer span { color: var(--green-dim); }
     <div class="boot-line" id="bl2">Loading neuroscience database... <span style="color:var(--green)">OK</span></div>
     <div class="boot-line" id="bl3">Mounting publication index (9 records)... <span style="color:var(--green)">OK</span></div>
     <div class="boot-line" id="bl4">Verifying identity :: <span style="color:var(--amber)">KIM SUNWHI, Ph.D.</span></div>
-    <div class="boot-line" id="bl5">Establishing secure link :: HSMU :: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b3c0d8dadef3dbc0dec69dd2d09dd8c1">[email&#160;protected]</a></div>
+    <div class="boot-line" id="bl5">Establishing secure link :: HSMU :: <span id="boot-email"></span></div>
     <div class="boot-line amber" id="bl6">ACCESS GRANTED :: Neural Systems Laboratory online</div>
     <div class="boot-line" id="bl7" style="margin-top:8px">
       <div class="progress-bar-wrap"><div class="progress-bar"></div></div>
@@ -617,7 +617,7 @@ footer span { color: var(--green-dim); }
           <div><span class="key">role     :</span> <span class="val">교수 · Professor</span></div>
           <div><span class="key">dept     :</span> <span class="val">바이오헬스케어학과, 화성의과학대학교</span></div>
           <div><span class="key">research :</span> <span class="val">생물심리학 · 뇌신경생물학</span></div>
-          <div><span class="key">email    :</span> <span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="76051d1f1b361e051b03581715581d04">[email&#160;protected]</a></span></div>
+          <div><span class="key">email    :</span> <span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8bf8e0e2e6cbe3f8e6fea5eae8a5e0f9">[email&#160;protected]</a></span></div>
         </div>
         <div class="hero-links">
           <a href="https://scholar.google.com/citations?user=64RRH9QAAAAJ&hl=ko" target="_blank" rel="noopener" class="btn btn-primary">
@@ -867,13 +867,13 @@ footer span { color: var(--green-dim); }
   setTimeout(() => clearInterval(interval), 5000);
 })();
 
-// ── EMAIL RENDER (bypass Cloudflare HTML scan) ──
+// ── EMAIL RENDER (bypass Cloudflare) ──
 (function() {
-  const at = String.fromCharCode(64);
-  const m1 = 'skim' + at + 'hsmu.ac.kr';
-  const m2 = 'gdrpaul3' + at + 'gmail.com';
+  const m1 = String.fromCharCode(115,107,105,109,64,104,115,109,117,46,97,99,46,107,114);
+  const m2 = String.fromCharCode(103,100,114,112,97,117,108,51,64,103,109,97,105,108,46,99,111,109);
   const set = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
   set('hero-email', m1);
+  set('boot-email', m1);
   set('contact-email1', m1);
   set('contact-email2', m2);
 })();
