@@ -617,7 +617,7 @@ footer span { color: var(--green-dim); }
           <div><span class="key">role     :</span> <span class="val">교수 · Professor</span></div>
           <div><span class="key">dept     :</span> <span class="val">바이오헬스케어학과, 화성의과학대학교</span></div>
           <div><span class="key">research :</span> <span class="val">생물심리학 · 뇌신경생물학</span></div>
-          <div><span class="key">email    :</span> <span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8bf8e0e2e6cbe3f8e6fea5eae8a5e0f9">[email&#160;protected]</a></span></div>
+          <div><span class="key">email    :</span> <span class="val" id="hero-meta-email"></span></div>
         </div>
         <div class="hero-links">
           <a href="https://scholar.google.com/citations?user=64RRH9QAAAAJ&hl=ko" target="_blank" rel="noopener" class="btn btn-primary">
@@ -805,7 +805,7 @@ footer span { color: var(--green-dim); }
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── BOOT SEQUENCE ──
 (function() {
   const lines = document.querySelectorAll('.boot-line');
@@ -873,6 +873,7 @@ footer span { color: var(--green-dim); }
   const m2 = String.fromCharCode(103,100,114,112,97,117,108,51,64,103,109,97,105,108,46,99,111,109);
   const set = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
   set('hero-email', m1);
+  set('hero-meta-email', m1);
   set('boot-email', m1);
   set('contact-email1', m1);
   set('contact-email2', m2);
