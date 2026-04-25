@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEURAL_SYS_LAB :: SKim@HSMU</title>
+<title>NEURAL_SYS_LAB :: Neural Systems Laboratory</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -585,7 +585,7 @@ footer span { color: var(--green-dim); }
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">[<span>~</span>] NEURAL_LAB</a>
+    <a href="#hero" class="nav-logo">[<span>~</span>] NEURAL_SYSTEMS_LAB</a>
     <ul class="nav-links">
       <li><a href="#about" class="active">About</a></li>
       <li><a href="#research">Research</a></li>
@@ -610,7 +610,7 @@ footer span { color: var(--green-dim); }
         </div>
       </div>
       <div style="flex:1">
-        <div class="hero-prompt">root@hsmu:~$ <span>whoami</span></div>
+        <div class="hero-prompt"><span id="hero-prompt-text"></span></div>
         <div class="hero-name glitch-wrap" data-text="김선휘">김선휘</div>
         <div class="hero-name-en cursor-slow">Sunwhi Kim, Ph.D.</div>
         <div class="hero-meta">
@@ -801,7 +801,7 @@ footer span { color: var(--green-dim); }
     <span>© 2026 NEURAL_SYSTEMS_LABORATORY</span> ·
     <span style="color:var(--green)">바이오헬스케어학과, 화성의과학대학교</span>
     <br>
-    <span style="font-size:10px;letter-spacing:1px;color:var(--green-faint);margin-top:6px;display:block">root@hsmu:~$ █</span>
+    <span style="font-size:10px;letter-spacing:1px;color:var(--green-faint);margin-top:6px;display:block" id="footer-prompt"></span>
   </div>
 </footer>
 
@@ -877,6 +877,11 @@ footer span { color: var(--green-dim); }
   set('boot-email', m1);
   set('contact-email1', m1);
   set('contact-email2', m2);
+  const at = String.fromCharCode(64);
+  const hp = document.getElementById('hero-prompt-text');
+  if (hp) hp.innerHTML = 'root' + at + 'hsmu:~$ <span>whoami</span>';
+  const fp = document.getElementById('footer-prompt');
+  if (fp) fp.textContent = 'root' + at + 'hsmu:~$ █';
 })();
 
 // ── ACTIVE NAV ON SCROLL ──
