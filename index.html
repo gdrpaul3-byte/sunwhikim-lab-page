@@ -574,7 +574,7 @@ footer span { color: var(--green-dim); }
     <div class="boot-line" id="bl2">Loading neuroscience database... <span style="color:var(--green)">OK</span></div>
     <div class="boot-line" id="bl3">Mounting publication index (9 records)... <span style="color:var(--green)">OK</span></div>
     <div class="boot-line" id="bl4">Verifying identity :: <span style="color:var(--amber)">KIM SUNWHI, Ph.D.</span></div>
-    <div class="boot-line" id="bl5">Establishing secure link :: HSMU :: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b0c3dbd9ddf0d8c3ddc59ed1d39edbc2">[email&#160;protected]</a></div>
+    <div class="boot-line" id="bl5">Establishing secure link :: HSMU :: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b3c0d8dadef3dbc0dec69dd2d09dd8c1">[email&#160;protected]</a></div>
     <div class="boot-line amber" id="bl6">ACCESS GRANTED :: Neural Systems Laboratory online</div>
     <div class="boot-line" id="bl7" style="margin-top:8px">
       <div class="progress-bar-wrap"><div class="progress-bar"></div></div>
@@ -617,14 +617,14 @@ footer span { color: var(--green-dim); }
           <div><span class="key">role     :</span> <span class="val">교수 · Professor</span></div>
           <div><span class="key">dept     :</span> <span class="val">바이오헬스케어학과, 화성의과학대학교</span></div>
           <div><span class="key">research :</span> <span class="val">생물심리학 · 뇌신경생물학</span></div>
-          <div><span class="key">email    :</span> <span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ec9f878581ac849f8199c28d8fc2879e">[email&#160;protected]</a></span></div>
+          <div><span class="key">email    :</span> <span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="76051d1f1b361e051b03581715581d04">[email&#160;protected]</a></span></div>
         </div>
         <div class="hero-links">
           <a href="https://scholar.google.com/citations?user=64RRH9QAAAAJ&hl=ko" target="_blank" rel="noopener" class="btn btn-primary">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
             scholar.google
           </a>
-          <span class="btn btn-outline" style="cursor:default;user-select:all"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0370686a6e436b706e762d62602d6871">[email&#160;protected]</a></span>
+          <span class="btn btn-outline" style="cursor:default;user-select:all" id="hero-email"></span>
         </div>
       </div>
     </div>
@@ -783,8 +783,8 @@ footer span { color: var(--green-dim); }
       <div class="contact-card">
         <div class="label">// email</div>
         <div class="val">
-          <span style="display:block"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b9cad2d0d4f9d1cad4cc97d8da97d2cb">[email&#160;protected]</a></span>
-          <span style="display:block;color:var(--green-dim);font-size:12px"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="452221373524302976052228242c296b262a28">[email&#160;protected]</a></span>
+          <span style="display:block" id="contact-email1"></span>
+          <span style="display:block;color:var(--green-dim);font-size:12px" id="contact-email2"></span>
         </div>
       </div>
       <div class="contact-card">
@@ -867,18 +867,15 @@ footer span { color: var(--green-dim); }
   setTimeout(() => clearInterval(interval), 5000);
 })();
 
-// ── EMAIL OBFUSCATION BYPASS ──
+// ── EMAIL RENDER (bypass Cloudflare HTML scan) ──
 (function() {
-  const m1 = 'skim' + '@' + 'hsmu.ac.kr';
-  const m2 = 'gdrpaul3' + '@' + 'gmail.com';
-  const setMail = (id, addr) => {
-    const el = document.getElementById(id);
-    if (el) { el.href = 'mailto:' + addr; el.textContent = addr; }
-  };
-  setMail('mail1', m1);
-  setMail('mail2', m2);
-  const hero = document.getElementById('hero-mail');
-  if (hero) hero.href = 'mailto:' + m1;
+  const at = String.fromCharCode(64);
+  const m1 = 'skim' + at + 'hsmu.ac.kr';
+  const m2 = 'gdrpaul3' + at + 'gmail.com';
+  const set = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
+  set('hero-email', m1);
+  set('contact-email1', m1);
+  set('contact-email2', m2);
 })();
 
 // ── ACTIVE NAV ON SCROLL ──
