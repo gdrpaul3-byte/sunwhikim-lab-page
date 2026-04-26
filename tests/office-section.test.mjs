@@ -15,13 +15,12 @@ test('office panorama section is reachable from navigation', () => {
   assert.match(html, /A look inside the Office/);
 });
 
-test('office panorama viewer loads pannellum and both office scenes', () => {
-  assert.match(html, /pannellum\.css/);
-  assert.match(html, /pannellum\.js/);
-  assert.match(html, /office-panorama-viewer/);
-  assert.match(html, /office-panorama-error/);
-  assert.match(html, /viewer\.on\('load'/);
-  assert.match(html, /viewer\.on\('error'/);
+test('office panorama viewer exposes both office scans without WebGL dependencies', () => {
+  assert.doesNotMatch(html, /pannellum/);
+  assert.match(html, /office-panorama-track/);
+  assert.match(html, /office-panorama-image/);
+  assert.match(html, /scrollTo/);
+  assert.match(html, /pointerdown/);
   assert.match(html, /Office view 01/);
   assert.match(html, /Office view 02/);
 
