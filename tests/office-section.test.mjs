@@ -21,6 +21,12 @@ test('office panorama viewer exposes both office scans without WebGL dependencie
   assert.match(html, /office-panorama-image/);
   assert.match(html, /scrollTo/);
   assert.match(html, /pointerdown/);
+  assert.match(html, /data-office-pan="left"/);
+  assert.match(html, /data-office-pan="right"/);
+  assert.match(html, /office-panorama-pan/);
+  assert.match(html, /pointerType !== 'mouse'/);
+  assert.match(html, /touch-action: pan-y/);
+  assert.match(html, /scrollBy/);
   assert.match(html, /Office view 01/);
   assert.match(html, /Office view 02/);
 

@@ -471,6 +471,11 @@ section + section { border-top: 1px solid var(--border); }
   background: rgba(0,255,65,0.06);
   box-shadow: 0 0 10px var(--green-glow);
 }
+.office-panorama-pan {
+  min-width: 42px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .office-viewer-shell {
   position: relative;
   min-height: 460px;
@@ -659,11 +664,20 @@ footer span { color: var(--green-dim); }
   .office-control {
     flex: 1 1 auto;
     min-width: 120px;
+    min-height: 44px;
+  }
+  .office-panorama-pan {
+    flex: 0 0 54px;
+    min-width: 54px;
   }
   .office-viewer-shell,
   .office-panorama-track {
     height: 340px;
     min-height: 340px;
+  }
+  .office-panorama-track {
+    overflow-x: hidden;
+    touch-action: pan-y;
   }
 }
 
@@ -842,6 +856,8 @@ footer span { color: var(--green-dim); }
         <div class="office-controls" aria-label="Office panorama controls">
           <button class="office-control" type="button" data-office-scene="office01" aria-pressed="true">Office view 01</button>
           <button class="office-control" type="button" data-office-scene="office02" aria-pressed="false">Office view 02</button>
+          <button class="office-control office-panorama-pan" type="button" data-office-pan="left" aria-label="Pan left">&lt;</button>
+          <button class="office-control office-panorama-pan" type="button" data-office-pan="right" aria-label="Pan right">&gt;</button>
           <button class="office-control" type="button" id="office-reset">Reset view</button>
         </div>
       </div>
@@ -1056,6 +1072,7 @@ footer span { color: var(--green-dim); }
   const image = document.getElementById('office-panorama-image');
   const status = document.getElementById('office-status');
   const buttons = document.querySelectorAll('[data-office-scene]');
+  const panButtons = document.querySelectorAll('[data-office-pan]');
   const reset = document.getElementById('office-reset');
   const scenes = {
     office01: {
@@ -1078,6 +1095,15 @@ footer span { color: var(--green-dim); }
     if (!track) return;
     const left = Math.max(0, (track.scrollWidth - track.clientWidth) / 2);
     track.scrollTo({ left, behavior });
+  }
+
+  function panTrack(direction) {
+    if (!track) return;
+    const distance = Math.max(180, track.clientWidth * 0.72);
+    track.scrollBy({
+      left: direction === 'left' ? -distance : distance,
+      behavior: 'smooth'
+    });
   }
 
   function setActiveScene(sceneId) {
@@ -1109,12 +1135,17 @@ footer span { color: var(--green-dim); }
       setActiveScene(button.dataset.officeScene);
     });
   });
+  panButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      panTrack(button.dataset.officePan);
+    });
+  });
 
   if (reset) reset.addEventListener('click', () => centerTrack('smooth'));
   if (image) image.addEventListener('load', () => centerTrack('auto'));
   if (track) {
     track.addEventListener('pointerdown', (event) => {
-      if (event.button !== 0) return;
+      if (event.pointerType !== 'mouse' || event.button !== 0) return;
       isDragging = true;
       dragStartX = event.clientX;
       dragStartScroll = track.scrollLeft;
