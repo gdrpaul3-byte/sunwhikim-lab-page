@@ -4,6 +4,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+const officeControls = html.match(/<div class="office-controls"[\s\S]*?<\/div>/)?.[0] ?? '';
 const expectedAssets = [
   'pics/office-panorama-01.jpg',
   'pics/office-panorama-02.jpg',
@@ -24,6 +25,9 @@ test('office panorama viewer exposes both office scans without WebGL dependencie
   assert.match(html, /data-office-pan="left"/);
   assert.match(html, /data-office-pan="right"/);
   assert.match(html, /office-panorama-pan/);
+  assert.match(html, /office-panorama-nav/);
+  assert.doesNotMatch(officeControls, /data-office-pan=/);
+  assert.ok(html.indexOf('class="office-panorama-nav"') > html.indexOf('id="office-panorama-track"'));
   assert.match(html, /pointerType !== 'mouse'/);
   assert.match(html, /touch-action: pan-y/);
   assert.match(html, /scrollBy/);

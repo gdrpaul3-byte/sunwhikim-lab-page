@@ -471,10 +471,23 @@ section + section { border-top: 1px solid var(--border); }
   background: rgba(0,255,65,0.06);
   box-shadow: 0 0 10px var(--green-glow);
 }
+.office-panorama-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--border);
+  background: rgba(0,255,65,0.025);
+}
 .office-panorama-pan {
-  min-width: 42px;
-  padding-left: 10px;
-  padding-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 180px;
+  min-height: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .office-viewer-shell {
   position: relative;
@@ -666,9 +679,16 @@ footer span { color: var(--green-dim); }
     min-width: 120px;
     min-height: 44px;
   }
+  .office-panorama-nav {
+    padding: 10px;
+    gap: 8px;
+  }
   .office-panorama-pan {
-    flex: 0 0 54px;
-    min-width: 54px;
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 44px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
   .office-viewer-shell,
   .office-panorama-track {
@@ -856,8 +876,6 @@ footer span { color: var(--green-dim); }
         <div class="office-controls" aria-label="Office panorama controls">
           <button class="office-control" type="button" data-office-scene="office01" aria-pressed="true">Office view 01</button>
           <button class="office-control" type="button" data-office-scene="office02" aria-pressed="false">Office view 02</button>
-          <button class="office-control office-panorama-pan" type="button" data-office-pan="left" aria-label="Pan left">&lt;</button>
-          <button class="office-control office-panorama-pan" type="button" data-office-pan="right" aria-label="Pan right">&gt;</button>
           <button class="office-control" type="button" id="office-reset">Reset view</button>
         </div>
       </div>
@@ -872,6 +890,17 @@ footer span { color: var(--green-dim); }
             draggable="false"
           >
         </div>
+      </div>
+
+      <div class="office-panorama-nav" aria-label="Office panorama navigation">
+        <button class="office-control office-panorama-pan" type="button" data-office-pan="left" aria-label="Pan left">
+          <span aria-hidden="true">&larr;</span>
+          <span>View left</span>
+        </button>
+        <button class="office-control office-panorama-pan" type="button" data-office-pan="right" aria-label="Pan right">
+          <span>View right</span>
+          <span aria-hidden="true">&rarr;</span>
+        </button>
       </div>
 
       <div class="office-console-footer">
