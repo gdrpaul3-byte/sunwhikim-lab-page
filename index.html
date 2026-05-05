@@ -582,6 +582,39 @@ section + section { border-top: 1px solid var(--border); }
 .patent-title::before { content: '$ '; color: var(--green-faint); }
 .patent-meta { font-size: 11px; color: var(--green-dim); letter-spacing: 0.5px; }
 
+/* ── OUTREACH ── */
+.outreach-card {
+  border: 1px solid var(--border-bright);
+  background: var(--bg-card);
+  border-radius: 2px;
+  padding: 26px 28px;
+  box-shadow: 0 0 18px var(--green-glow), inset 0 0 24px rgba(0,255,65,0.025);
+}
+.outreach-card p {
+  max-width: 760px;
+  color: var(--green-dim);
+  font-size: 13px;
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+.outreach-card p:last-of-type { margin-bottom: 22px; }
+.outreach-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 22px;
+}
+.outreach-tags span {
+  border: 1px solid var(--border);
+  color: var(--green);
+  background: rgba(0,255,65,0.045);
+  border-radius: 1px;
+  padding: 4px 9px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 /* ── CONTACT ── */
 .contact-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
@@ -979,6 +1012,33 @@ footer span { color: var(--green-dim); }
     <div class="patent-item">
       <div class="patent-title">연속반응속도검사 (Serial Reaction Time Task)</div>
       <div class="patent-meta">고려대학교 산학협력단 · C-2015-008009 · 2015</div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTREACH -->
+<section id="outreach">
+  <div class="container">
+    <p class="section-label">outreach</p>
+    <h2 class="section-title">student_maker_community<span class="cursor"></span></h2>
+    <div class="outreach-card" data-label="makers_club">
+      <p>
+        메이커스(Makers)는 화성의과학대학교 학생들이 AI 코딩, 생성형 미디어,
+        3D 프린팅, 아두이노, 자동화 도구를 함께 실험하고 실제 결과물로 만드는
+        창작형 기술 동아리입니다.
+      </p>
+      <p>
+        이 활동은 연구실의 인간-AI 상호작용, 인지적 인간요인, 실험 기반 학습에 대한
+        관심을 학생 프로젝트와 프로토타입 제작 문화로 확장합니다.
+      </p>
+      <div class="outreach-tags" aria-label="Makers activity areas">
+        <span>AI coding</span>
+        <span>Generative media</span>
+        <span>3D printing</span>
+        <span>Arduino</span>
+        <span>Automation</span>
+      </div>
+      <a href="https://gdrpaul3-byte.github.io/hsmu_makers_page/" target="_blank" rel="noopener" class="btn btn-outline">./open_makers_page</a>
     </div>
   </div>
 </section>
