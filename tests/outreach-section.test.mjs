@@ -1,8 +1,10 @@
 import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+const makersLogo = 'pics/makers-logo.jpg';
 
 test('homepage includes the Makers student outreach section before contact', () => {
   assert.match(html, /id="outreach"/);
@@ -13,8 +15,12 @@ test('homepage includes the Makers student outreach section before contact', () 
   assert.match(html, /3D 프린팅/);
   assert.match(html, /아두이노/);
   assert.match(html, /프로토타입 제작 문화/);
+  assert.match(html, /class="outreach-logo"/);
+  assert.match(html, /alt="Makers 동아리 로고"/);
+  assert.match(html, new RegExp(makersLogo.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   assert.match(html, /https:\/\/gdrpaul3-byte\.github\.io\/hsmu_makers_page\//);
   assert.match(html, /\.\/open_makers_page/);
+  assert.equal(existsSync(new URL(`../${makersLogo}`, import.meta.url)), true);
 
   assert.ok(html.indexOf('id="patents"') < html.indexOf('id="outreach"'));
   assert.ok(html.indexOf('id="outreach"') < html.indexOf('id="contact"'));

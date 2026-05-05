@@ -589,6 +589,18 @@ section + section { border-top: 1px solid var(--border); }
   border-radius: 2px;
   padding: 26px 28px;
   box-shadow: 0 0 18px var(--green-glow), inset 0 0 24px rgba(0,255,65,0.025);
+  display: grid;
+  grid-template-columns: minmax(190px, 280px) 1fr;
+  gap: 26px;
+  align-items: center;
+}
+.outreach-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  box-shadow: 0 0 14px rgba(0,255,65,0.18);
 }
 .outreach-card p {
   max-width: 760px;
@@ -697,6 +709,15 @@ footer span { color: var(--green-dim); }
   .hero-inner { flex-direction: column; }
   .research-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+  .outreach-card {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 18px;
+  }
+  .outreach-logo {
+    max-height: 220px;
+    object-fit: cover;
+  }
   .nav-links { display: none; }
   .office-console-header,
   .office-console-footer {
@@ -1022,23 +1043,34 @@ footer span { color: var(--green-dim); }
     <p class="section-label">outreach</p>
     <h2 class="section-title">student_maker_community<span class="cursor"></span></h2>
     <div class="outreach-card" data-label="makers_club">
-      <p>
-        메이커스(Makers)는 화성의과학대학교 학생들이 AI 코딩, 생성형 미디어,
-        3D 프린팅, 아두이노, 자동화 도구를 함께 실험하고 실제 결과물로 만드는
-        창작형 기술 동아리입니다.
-      </p>
-      <p>
-        이 활동은 연구실의 인간-AI 상호작용, 인지적 인간요인, 실험 기반 학습에 대한
-        관심을 학생 프로젝트와 프로토타입 제작 문화로 확장합니다.
-      </p>
-      <div class="outreach-tags" aria-label="Makers activity areas">
-        <span>AI coding</span>
-        <span>Generative media</span>
-        <span>3D printing</span>
-        <span>Arduino</span>
-        <span>Automation</span>
+      <img
+        class="outreach-logo"
+        src="pics/makers-logo.jpg"
+        alt="Makers 동아리 로고"
+        width="1200"
+        height="655"
+        loading="lazy"
+        decoding="async"
+      >
+      <div class="outreach-copy">
+        <p>
+          메이커스(Makers)는 화성의과학대학교 학생들이 AI 코딩, 생성형 미디어,
+          3D 프린팅, 아두이노, 자동화 도구를 함께 실험하고 실제 결과물로 만드는
+          창작형 기술 동아리입니다.
+        </p>
+        <p>
+          이 활동은 연구실의 인간-AI 상호작용, 인지적 인간요인, 실험 기반 학습에 대한
+          관심을 학생 프로젝트와 프로토타입 제작 문화로 확장합니다.
+        </p>
+        <div class="outreach-tags" aria-label="Makers activity areas">
+          <span>AI coding</span>
+          <span>Generative media</span>
+          <span>3D printing</span>
+          <span>Arduino</span>
+          <span>Automation</span>
+        </div>
+        <a href="https://gdrpaul3-byte.github.io/hsmu_makers_page/" target="_blank" rel="noopener" class="btn btn-outline">./open_makers_page</a>
       </div>
-      <a href="https://gdrpaul3-byte.github.io/hsmu_makers_page/" target="_blank" rel="noopener" class="btn btn-outline">./open_makers_page</a>
     </div>
   </div>
 </section>
