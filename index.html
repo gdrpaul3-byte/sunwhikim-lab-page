@@ -590,6 +590,13 @@ section + section { border-top: 1px solid var(--border); }
 .pub-link:hover { color: var(--green); text-shadow: 0 0 8px var(--green); text-decoration: underline; text-underline-offset: 3px; }
 .patent-title { color: var(--green); margin-bottom: 4px; }
 .patent-title::before { content: '$ '; color: var(--green-faint); }
+/* Links inside patent/software/agent items inherit the terminal green instead
+   of the browser's default blue. Mirrors .pub-link. */
+.patent-title a { color: inherit; text-decoration: none; }
+.patent-title a:hover { color: var(--green); text-shadow: 0 0 8px var(--green);
+  text-decoration: underline; text-underline-offset: 3px; }
+.patent-meta a { color: var(--green-dim); text-decoration: none; }
+.patent-meta a:hover { color: var(--green); text-decoration: underline; }
 .patent-meta { font-size: 11px; color: var(--green-dim); letter-spacing: 0.5px; }
 
 /* ── OUTREACH ── */
